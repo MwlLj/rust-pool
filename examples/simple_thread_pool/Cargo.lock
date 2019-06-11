@@ -1,0 +1,14 @@
+[[package]]
+name = "rust_pool"
+version = "0.1.0"
+source = "git+https://github.com/MwlLj/rust-pool#62f134b58ed0013121ae0feab1e8f4f0fe767624"
+
+[[package]]
+name = "simple_thread_pool"
+version = "0.1.0"
+dependencies = [
+ "rust_pool 0.1.0 (git+https://github.com/MwlLj/rust-pool)",
+]
+
+[metadata]
+"checksum rust_pool 0.1.0 (git+https://github.com/MwlLj/rust-pool)" = "<none>"

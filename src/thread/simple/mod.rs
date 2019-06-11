@@ -27,10 +27,18 @@ impl CWorker {
 		let worker = CWorker {
 			handler: thread::spawn(move || {
 				loop {
-					let f = receiver.lock().unwrap().recv().unwrap();
+					let lock = match receiver.lock() {
+						Ok(lock) => lock,
+						Err(_) => break,
+					};
+					let recv = match lock.recv() {
+						Ok(recv) => recv,
+						Err(_) => break,
+					};
+					// let f = receiver.lock().unwrap().recv().unwrap();
 					// 无法直接调用, 需要间接调用
 					// (*f)();
-					f.call();
+					recv.call();
 				}
 			}),
 			threadNo: threadNo

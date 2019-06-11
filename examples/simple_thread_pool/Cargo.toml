@@ -5,3 +5,4 @@ authors = ["MwlLj <731025894@qq.com>"]
 edition = "2018"
 
 [dependencies]
+rust_pool = { git = "https://github.com/MwlLj/rust-pool" }
